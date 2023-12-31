@@ -1,1 +1,184 @@
-"Hello World" 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meryl's Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: lightblue;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+
+        header, footer {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 10px;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-column {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 2px solid floralwhite;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-column:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: 350px; /* Set a fixed height for the images */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            border-radius: 5px;
+        }
+
+        .project-link {
+            display: block;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .project-link:hover {
+            background-color: #555;
+        }
+
+        /* Media query for tablets and smaller screens */
+        @media screen and (max-width: 1024px) {
+            .project-container {
+                grid-template-columns: 1fr 1fr; /* Adjust columns for smaller screens */
+            }
+        }
+
+        /* Media query for phones */
+        @media screen and (max-width: 768px) {
+            .project-container {
+                grid-template-columns: 1fr; /* Single column layout for phones */
+                padding: 10px; /* Adjust padding for better spacing on smaller screens */
+                gap: 10px; /* Adjust gap between project columns */
+            }
+
+            .project-column {
+                width: 100%; /* Set full width for project columns */
+                max-width: none; /* Remove max-width */
+                height: auto; /* Adjust height to fit content */
+            }
+
+            .project-image {
+                height: auto; /* Adjust image height to maintain aspect ratio */
+                width: 100%; /* Make images fill the entire column width */
+            }
+        }
+   
+        header {
+            position: relative; /* Set position to relative for absolute positioning */
+            z-index: 1; /* Ensure the header is on top of the gradient */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+            z-index: -1; /* Place the gradient behind the header content */
+            animation: gradientAnimation 3s infinite alternate; /* Set the animation */
+        }
+
+        @keyframes gradientAnimation {
+            0% { opacity: 0.1; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Meryl's Portfolio</h1>
+</header>
+
+<div class="project-container">
+    <div class="project-column">
+        <h2>Make Learning Matter</h2>
+        <img class="project-image" src="MakeLearningMatter.png" alt="Make Learning Matter Website" width="400" height="350">
+        <p>This is a website that I made for a family friend, designed on Google Sites.</p>
+        <a href="#" onclick="websiteRedirect()" class="project-link">Check out this website!</a>
+    </div>
+
+    <div class="project-column">
+        <h2>Aqua Watch Mobile</h2>
+        <img class="project-image" src="App.png" alt="A picture of an app" width="400" height="350">
+        <p>This is a app that my friends and I made to educate users about the quality of outdoor water that they may want to swim or fish in.</p>
+        <a href="#" onclick="appRedirect()" class="project-link">Check out our git repository!</a>
+    </div>
+
+    <div class="project-column">
+        <h2>Kiosk for BlueColab</h2>
+        <img class="project-image" src="KioskSS3.png" alt="Screen Shot of a Kiosk" width="400" height="350">
+        <p>This kiosk interface was designed to help users learn about an on-campus organization called Blue CoLab. </p>
+        <a href="#" onclick="kioskRedirect()" class="project-link">Check out this kiosk!</a>
+    </div>
+
+    <div class="project-column">
+        <h2>Indie Game</h2>
+        <img class="project-image" src="Game.png" alt="Indie Game" width="400" height="350">
+        <p>I made this game using Unity and coding in C# for my game development class.</p>
+        <a href="#" onclick="gameRedirect()" class="project-link">Check out this game!</a>
+    </div>
+</div>
+
+<footer>
+    <p>Thanks for checking out my portfolio!</p>
+</footer>
+
+<script>
+    function kioskRedirect() {
+        window.location.href = "https://bluecolab.blogs.pace.edu/blue-colab-test-site-2-3-3/";
+    }
+
+    function websiteRedirect() {
+        window.location.href = "https://www.makelearningmatter.com/";
+    }
+
+    function gameRedirect() {
+        window.location.href = "https://merylmizell.itch.io/island-escape";
+    }
+
+      function appRedirect() {
+        window.location.href = "https://github.com/esorbella/BlueColab_MobileDataViz/blob/main/README.md";
+    }
+
+</script>
+</body>
+</html>
+
